@@ -4,10 +4,11 @@ import Grid from "gridfs-stream"
 dotenv.config();
 
 const DBConnection = () => {
-  const mongoURI = 'mongodb://localhost:27017/RecordManagementSystem';
 
+
+  const mongoURI ="mongodb+srv://ShaheerShahzad:ShaheerDev@ecommerce.w8dyp.mongodb.net/RecordManagementSystem?retryWrites=true&w=majority"
   // Create mongo connection
-  mongoose.connect(mongoURI, { useNewUrlParser: true }).then((result) => {
+  mongoose.connect(process.env.URI || mongoURI , { useNewUrlParser: true }).then((result) => {
     console.log(`DATABASE CONNECTED WITH THE HOST ${result.connection.host}`)
 })
 };
